@@ -1,0 +1,25 @@
+#rooms {
+    width: 100%;
+    height: calc(100vh - 100px);
+    max-height: calc(100vh - 100px);
+    background-color: #eeeeee;
+    overflow: auto;
+
+    md-card {
+        width: 95%;
+        height: 100px;
+        padding: 0;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: white;
+
+        img {
+            text-align: left;
+            padding: 0;
+            margin: 0;
+            max-height: 100px;
+            height: 100px;
+            max-width: 100px;
+        }
+    }
+}

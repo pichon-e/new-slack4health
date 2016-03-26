@@ -1,0 +1,23 @@
+<div id="rooms">
+    <md-card layout="row" layout-align="space-around center" ng-repeat="room in rooms">
+      <img
+        flex="20"
+        ng-if="room.patient"
+        ng-src="assets/images/{{room.patient.picture}}"
+        alt="{{room.patient.last_name}}-{{room.patient.first_name}}"
+      />
+      <img
+        flex="20"
+        ng-if="!room.patient"
+        ng-src="assets/images/empty-room.jpg"
+        alt="{{room.patient.last_name}}-{{room.patient.first_name}}"
+        class="half-opacity"
+      />
+      <div flex="70" class="md-list-item-text" layout="column">
+        <div ng-if="room.patient" class="isavailable no"></div>
+        <div ng-if="!room.patient" class="isavailable yes"></div>
+        <h3>Chambre N°{{ room.number }}</h3>
+        <p>{{ room.patient.first_name }} {{ room.patient.last_name | uppercase }}</p>
+      </div>
+    </md-card>
+</div>
