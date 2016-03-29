@@ -1,5 +1,16 @@
-<div id="rooms">
-    <md-card layout="row" layout-align="space-around center" ng-repeat="room in rooms">
+<div id="rooms"
+    ng-swipe-left="goToChat()">
+    <md-card
+      layout="row"
+      layout-align="space-around center"
+      ng-repeat="room in rooms"
+      flex="95" flex-gt-sm="50">
+
+      <div ng-if="!room.patient" class="empty">
+      </div>
+      <div ng-if="room.patient" class="full">
+      </div>
+
       <img
         flex="20"
         ng-if="room.patient"
@@ -13,6 +24,7 @@
         alt="{{room.patient.last_name}}-{{room.patient.first_name}}"
         class="half-opacity"
       />
+
       <div flex="70" class="md-list-item-text" layout="column">
         <div ng-if="room.patient" class="isavailable no"></div>
         <div ng-if="!room.patient" class="isavailable yes"></div>

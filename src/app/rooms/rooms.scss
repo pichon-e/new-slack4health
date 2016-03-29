@@ -6,6 +6,7 @@
     overflow: auto;
 
     md-card {
+        position: relative;
         width: 95%;
         height: 100px;
         padding: 0;
@@ -20,6 +21,28 @@
             max-height: 100px;
             height: 100px;
             max-width: 100px;
+        }
+
+        .empty {
+            position: absolute;
+            height: 10px;
+            width: 10px;
+            top: 0;
+            right: 0;
+            margin: 15px;
+            border-radius: 50%;
+            background-color: green;
+        }
+
+        .full {
+            position: absolute;
+            height: 10px;
+            width: 10px;
+            top: 0;
+            right: 0;
+            margin: 15px;
+            border-radius: 50%;
+            background-color: red;
         }
     }
 }

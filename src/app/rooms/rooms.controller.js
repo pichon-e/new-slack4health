@@ -14,6 +14,10 @@
       $state.go("chat");*/
     }
 
+    $scope.goToChat = function() {
+      $state.go("chat");
+    }
+
     $scope.rooms = [
     {
       number: "001",
@@ -43,12 +47,6 @@
       }
     },
     {
-      number: "005"
-    },
-        {
-      number: "005"
-    },
-        {
       number: "005"
     }
    ]

@@ -1,10 +1,13 @@
-<div id="chat">
+<div id="chat"
+    ng-swipe-left="goToBio()"
+    ng-swipe-right="goToRooms()">
     <div
         class="channel-list"
         layout="column"
-        layout-align="start stretch"
-        ng-repeat="channel in channels">
-        <div class="channel ripple" layout="row" layout-align="start center">
+        layout-align="center center"
+        ng-repeat="channel in channels"
+        flex-gt-sm="50">
+        <div class="channel ripple" layout="row" layout-align="center center">
             <img flex="20" class="contact" ng-src="{{channel.picture}}"></img>
             <div flex="70" class="detail" layout="column" layout-align="center start">
                 <p flex="100" class="contact-name">
@@ -26,7 +29,7 @@
             <input ng-model="user.title">
         </md-input-container>
         <div flex="20" class="button-container">
-            <md-button flex layout="column" layout-align="center center" class="md-fab " aria-label="Comment">
+            <md-button flex layout="column" layout-align="center center" class="md-fab" aria-label="Comment">
                 <i class="material-icons" flex>send</i>
             </md-button>
         </div>

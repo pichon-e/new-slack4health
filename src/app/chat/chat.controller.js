@@ -7,9 +7,18 @@
 
     /** @ngInject */
     function ChatController($rootScope, $scope, $state) {
+
+        $scope.goToBio = function() {
+            $state.go("bio");
+        }
+
+        $scope.goToRooms = function() {
+            $state.go("rooms");
+        }
+
         $scope.channels = [
             {
-                contact: "Dr Huber",
+                contact: "General",
                 last_message_date: "10h20 10/06",
                 last_message : "Ceci est un message de test",
                 picture: "assets/images/avatar-min.png"
@@ -21,18 +30,6 @@
                 picture: "assets/images/angular.png"
             },
             {
-                contact: "Psychatre GentilMedecin",
-                last_message_date: "22h47 17/03",
-                last_message : "Ceci est un message de test",
-                picture: "assets/images/karma.png"
-            },
-            {
-                contact: "Médecin Général",
-                last_message_date: "00h13 30/12",
-                last_message : "Ceci est un message de test",
-                picture: "assets/images/yeoman.png"
-            },
-                        {
                 contact: "Psychatre GentilMedecin",
                 last_message_date: "22h47 17/03",
                 last_message : "Ceci est un message de test",

@@ -1,1 +1,26 @@
-prescription
+<div id="prescription"
+    ng-swipe-left="goToFolder()"
+    ng-swipe-right="goToBio()">
+    <md-tabs >
+        <md-tab label="Historique">
+            <md-tab-label>
+                <h3>Historique</h3>
+            </md-tab-label>
+            <md-tab-body>
+                <p>
+                    Historique des prescriptions
+                </p>
+            </md-tab-body>
+        </md-tab>
+        <md-tab label="En cours">
+            <md-tab-label>
+                <h3>En cours</h3>
+            </md-tab-label>
+            <md-tab-body>
+                <p>
+                    Préscriptions en cours
+                </p>
+            </md-tab-body>
+        </md-tab>
+    </md-tabs>
+</div>

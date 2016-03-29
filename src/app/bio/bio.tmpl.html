@@ -1,1 +1,13 @@
-bio
+<div id="bio"
+    ng-swipe-left="goToPrescription()"
+    ng-swipe-right="goToChat()"
+    layout="row" layout-wrap layout-align="center center">
+    <md-card ng-repeat="item in dataset" flex="95" flex-gt-sm="30">
+        <img class="md-card-image" src="assets/images/angular.png" alt="image caption">
+        <md-card-footer>
+            {{item.title}}
+        </md-card-footer>
+        <div id="bottom" ng-if="$index == dataset.length - 1">
+        </div>
+    </md-card>
+</div>

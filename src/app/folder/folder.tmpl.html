@@ -1,1 +1,10 @@
-folder
+<div id="folder"
+    ng-swipe-right="goToPrescription()"
+    layout="row" layout-align="space-around center" layout-wrap>
+    <md-card ng-repeat="item in dataset" flex="45" flex-gt-sm="20" ng-click="openFolder()">
+        <img class="md-card-image" src="assets/images/yeoman.png" alt="image caption">
+        <md-card-footer>
+            {{item.title}}
+        </md-card-footer>
+    </md-card>
+</div>

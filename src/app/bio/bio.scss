@@ -1,0 +1,20 @@
+#bio {
+    width: 100%;
+    height: calc(100vh - 100px);
+    max-height: calc(100vh - 100px);
+    background-color: #eeeeee;
+    overflow: auto;
+
+    md-card {
+        height: 70vh;
+
+        img {
+            height: 85%;
+        }
+
+        md-card-footer {
+            height: 15%;
+            background-color: #3DBE62;
+        }
+    }
+}
