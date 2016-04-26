@@ -21,7 +21,7 @@
                 </md-list>
             </md-content>
             <md-content class="md-padding" layout="row" layout-wrap layout-align="space-between start">
-                <h2 flex="100">Nouveau prescription : </h2>
+                <h2 flex="100">Nouvelle prescription : </h2>
                 <md-chips flex="60" ng-model="selectedDrug" md-autocomplete-snap="" md-transform-chip="transformChip($chip)" md-require-match="autocompleteDemoRequireMatch" required>
                     <md-autocomplete md-selected-item="selectedItem" md-search-text="searchText" md-items="item in querySearch(searchText)" md-item-text="item.name" placeholder="Séléctionnez un médicament">
                         <span md-highlight-text="searchText">{{item.name}} - {{item.dosage}}</span>
