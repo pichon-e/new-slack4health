@@ -1,20 +1,48 @@
 #bio {
-    width: 100%;
-    height: calc(100vh - 100px);
-    max-height: calc(100vh - 100px);
+    width: 100vw;
+    height: calc(100vh - 200px);
+    max-height: calc(100vh - 200px);
     background-color: #eeeeee;
     overflow: auto;
 
-    md-card {
-        height: 70vh;
+    img {
+        width: 85vw;
+        margin: 0 auto;
+        text-align: center;
+    }
 
-        img {
-            height: 85%;
+    span.md-headline {
+        text-align: center;
+    }
+
+    .send-box {
+        position: absolute;
+        bottom: 0;
+        width: 100vw;
+        height: 100px;
+        margin-bottom: 50px;
+
+        background-color: white;
+
+        .md-button {
+            font-size: 10px;
         }
 
-        md-card-footer {
-            height: 15%;
-            background-color: #3DBE62;
+        .button-container {
+            text-align: center;
+
+            .md-button.md-fab {
+                background-color: #3dbeae;
+                text-align: center;
+                margin: 0 auto;
+
+                i {
+                    text-align: center;
+                    color: #fafafa;
+                    margin-top: 25px;
+                    margin-left: 5px;
+                }
+            }
         }
     }
 }

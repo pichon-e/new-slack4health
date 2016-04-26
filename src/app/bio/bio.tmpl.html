@@ -1,13 +1,40 @@
 <div id="bio"
     ng-swipe-left="goToPrescription()"
-    ng-swipe-right="goToChat()"
-    layout="row" layout-wrap layout-align="center center">
-    <md-card ng-repeat="item in dataset" flex="95" flex-gt-sm="30">
-        <img class="md-card-image" src="assets/images/angular.png" alt="image caption">
-        <md-card-footer>
-            {{item.title}}
-        </md-card-footer>
-        <div id="bottom" ng-if="$index == dataset.length - 1">
-        </div>
+    ng-swipe-right="goToChat()">
+        <md-card ng-if="messaged" ng-click="showPdf($event, 'assets/images/a16031901104.pdf')">
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">Resultat 23/02/2016</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-content layout="row" layout-align="space-between">
+          <div class="md-media-xl card-media">
+            <img src="assets/images/A16031901103-1.png">
+          </div>
+        </md-card-content>
+      </md-card>
+    <md-card ng-click="showPdf($event, 'src/assets/images/A16031901102-1.png')">
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">Resultat 10/06/2015</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-content layout="row" layout-align="space-between">
+          <div class="md-media-xl card-media">
+            <img src="assets/images/A16031901102-1.png">
+          </div>
+        </md-card-content>
     </md-card>
+
+    <div flex="100" class="send-box" layout="row" layout-align="space-around center">
+        <md-input-container flex="75">
+            <label>Message</label>
+            <input ng-model="messagePost" ng-keypress="keyPressed($event)"></input>
+        </md-input-container>
+        <div flex="20" class="button-container">
+            <md-button ng-click="sendMessage()" class="md-fab" aria-label="Comment">
+                <md-icon class="material-icons">send</md-icon>
+            </md-button>
+        </div>
+    </div>
 </div>

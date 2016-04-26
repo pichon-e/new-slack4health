@@ -3,10 +3,10 @@
 
   angular
     .module('slack4Health')
-    .controller('FolderController', ['$scope', 'pdfDelegate', '$state', '$mdDialog', FolderController]);
+    .controller('FolderController', FolderController);
 
   /** @ngInject */
-  function FolderController($scope, pdfDelegate, $state, $mdDialog)  {
+  function FolderController($scope, pdfDelegate, $state, $mdDialog, $location, $anchorScroll)  {
 
 /*    $scope.goToPrescription = function() {
         $state.go("prescription");
@@ -16,38 +16,25 @@ $scope.pdfUrl = 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/149125/relativity.
 
     $scope.dataset = [
         {
-            picture: "boum",
+            picture: "analyse.jpg",
             title: "Analyse"
         },
-                {
-            picture: "boum",
-            title: "Biopsie"
-        },
         {
-            picture: "boum",
+            picture: "radio.jpg",
             title: "Radio"
         },
         {
-            picture: "boum",
-            title: "IRM"
-        },
-        {
-            picture: "boum",
-            title: "Analyse"
-        },
-                {
-            picture: "boum",
+            picture: "biopsie.jpg",
             title: "Biopsie"
         },
         {
-            picture: "boum",
-            title: "Radio"
-        },
-        {
-            picture: "boum",
+            picture: "irm.jpg",
             title: "IRM"
         }
     ]
+
+    $location.hash("bottom");
+    $anchorScroll();
 
     $scope.openFolder = function() {
         $mdDialog.show({
@@ -58,5 +45,8 @@ $scope.pdfUrl = 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/149125/relativity.
         });
 
     }
+
+    $location.hash("bottom");
+    $anchorScroll();
   }
 })();

@@ -13,8 +13,10 @@
             'restangular',
             'ui.router',
             'ngMaterial',
+            'ngStorage',
             'toastr',
-            'pdf'
+            'pdf',
+            'angularMoment'
         ]);
 
 })();

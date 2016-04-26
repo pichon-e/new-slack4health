@@ -1,7 +1,10 @@
 {
   "name": "slack4Health",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "angular-moment": "^1.0.0-beta.5",
+    "moment": "^2.13.0"
+  },
   "scripts": {
     "test": "gulp test"
   },

@@ -1,26 +1,34 @@
 <div id="prescription"
     ng-swipe-left="goToFolder()"
-    ng-swipe-right="goToBio()">
-    <md-tabs >
-        <md-tab label="Historique">
-            <md-tab-label>
-                <h3>Historique</h3>
-            </md-tab-label>
-            <md-tab-body>
-                <p>
-                    Historique des prescriptions
-                </p>
-            </md-tab-body>
-        </md-tab>
-        <md-tab label="En cours">
-            <md-tab-label>
-                <h3>En cours</h3>
-            </md-tab-label>
-            <md-tab-body>
-                <p>
-                    Préscriptions en cours
-                </p>
-            </md-tab-body>
-        </md-tab>
-    </md-tabs>
+    ng-swipe-right="goToBio()" layout="column">
+    <div id="prescription-container">
+        <md-card ng-repeat="prescription in prescriptions">
+            <md-card-content >
+                <div layout="row" layout-align="space-between start" style="position: relative;" class="md-list-item-text">
+                    <div>
+                        <h3>{{ prescription.name }}</h3>
+                        <p>{{ prescription.forme }}</p>
+                    </div>
+                    <div>
+                        <h3>{{prescription.date | amDateFormat:'MM/DD/YYYY'}}</h3>
+                        <p ng-if="isCurrent(prescription) <= 0">
+                            En cours
+                        </p>
+                        <p ng-if="isCurrent(prescription) > 0">
+                            Passé
+                        </p>
+                    </div>
+                </div>
+                <div layout="row" layout-align="space-between">
+                    <p>{{ prescription.dosage }}</p>
+                    <p>{{ prescription.posologie }}</p>
+                </div>
+            </md-card-content>
+
+        </md-card>
+    </div>
+    <md-button class="md-fab" md-ripple-size="full" ng-click="addPrescription()">
+        <md-icon>add</md-icon>
+    </md-button>
+
 </div>

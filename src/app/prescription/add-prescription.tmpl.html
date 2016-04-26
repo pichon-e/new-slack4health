@@ -1,0 +1,50 @@
+<md-dialog class="fullsize-dialog">
+  <md-card>
+
+    <div id="header">
+      <h2>Ajout prescriptions</h2>
+    </div>
+
+    <div layout="column" layout-align="space-between">
+        <md-card-content>
+
+            <md-content>
+                <h2>Prescriptions en cours</h2>
+                <md-list flex="">
+                    <md-list-item class="md-2-line" ng-repeat="item in prescriptions" ng-if="isCurrent(item) < 0">
+                        <div class="md-list-item-text" layout="column">
+                            <h3>{{ item.name }}</h3>
+                            <h4>{{ item.dosage + " " + item.forme + " " + item.posologie }}</h4>
+                            <span>Il reste {{isCurrent(item) * -1}} jours de traitement</span>
+                        </div>
+                    </md-list-item>
+                </md-list>
+            </md-content>
+            <md-content class="md-padding" layout="row" layout-wrap layout-align="space-between start">
+                <h2 flex="100">Nouveau prescription : </h2>
+                <md-chips flex="60" ng-model="selectedDrug" md-autocomplete-snap="" md-transform-chip="transformChip($chip)" md-require-match="autocompleteDemoRequireMatch" required>
+                    <md-autocomplete md-selected-item="selectedItem" md-search-text="searchText" md-items="item in querySearch(searchText)" md-item-text="item.name" placeholder="Séléctionnez un médicament">
+                        <span md-highlight-text="searchText">{{item.name}} - {{item.dosage}}</span>
+                    </md-autocomplete>
+                    <md-chip-template>
+                        <span>
+                            <strong>{{$chip.name}}</strong>
+                            <em>({{$chip.dosage}}) : {{$chip.posologie}}</em>
+                        </span>
+                    </md-chip-template>
+                </md-chips>
+                <md-input-container flex="35">
+                    <label>Durée en jour</label>
+                    <input ng-model="drug.duration" type="number" required>
+                </md-input-container>
+            </md-content>
+
+        </md-card-content>
+        <div layout="row" layout-align="space-around center">
+            <md-button ng-click="close()" class="md-raised">Annuler</md-button>
+            <md-button ng-click="addPharmaceuticals(selectedDrug, drug.duration)" class="md-raised add" ng-disabled="!drug || selectedDrug.length <= 0">Ajouter</md-button>
+        </div>
+    </div>
+
+  </md-card>
+</md-dialog>

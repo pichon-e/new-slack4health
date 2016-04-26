@@ -2,12 +2,18 @@
     ng-swipe-left="goToBio()"
     ng-swipe-right="goToRooms()">
     <div
+        ng-if="!currentChannel"
         class="channel-list"
         layout="column"
         layout-align="center center"
         ng-repeat="channel in channels"
-        flex-gt-sm="50">
-        <div class="channel ripple" layout="row" layout-align="center center">
+        ng-click="selectChannel(channel)">
+        <div
+            flex-gt-sm="50"
+            flex="100"
+            class="channel ripple"
+            layout="row"
+            layout-align="center center">
             <img flex="20" class="contact" ng-src="{{channel.picture}}"></img>
             <div flex="70" class="detail" layout="column" layout-align="center start">
                 <p flex="100" class="contact-name">
@@ -23,15 +29,47 @@
         </div>
         <md-divider></md-divider>
     </div>
-    <div class="send-box" layout="row" layout-align="space-around center">
-        <md-input-container flex="75">
-            <label>Title</label>
-            <input ng-model="user.title">
-        </md-input-container>
-        <div flex="20" class="button-container">
-            <md-button flex layout="column" layout-align="center center" class="md-fab" aria-label="Comment">
-                <i class="material-icons" flex>send</i>
-            </md-button>
+    <div ng-if="currentChannel" class="chat-card">
+        <div layout="row" layout-align="space-between center" layout-margin>
+            <div></div>
+            <div layout="row" layout-align="center center">
+                <img src="{{currentChannel.picture}}">
+                <h2>{{ currentChannel.contact }}</h2>
+            </div>
+            <i class="material-icons blue" ng-click="resetChannel()">keyboard_return</i>
+        </div>
+                <md-card ng-if="currentChannel.contact == 'Nathalie DUPOND (Infirmiere)'" ng-repeat="message in messages" class="message"
+                    ng-class="message.me ? 'left' : 'right'"
+                    layout="column" layout-align="center center">
+                    <div flex="70" class="md-list-item-text" layout="column">
+                        <h3><strong>{{ message.name }}</strong> <em>{{ message.job }}</em></h3>
+                        <h4>{{ message.date }}</h4>
+                        <p ng-bind-html="message.content"></p>
+                    </div>
+                </md-card>
+
+
+                <md-card ng-if="currentChannel.contact != 'Nathalie DUPOND (Infirmiere)'" ng-repeat="message in newDocMessage" class="message"
+                    ng-class="message.me ? 'left' : 'right'"
+                    layout="column" layout-align="center center">
+                    <div flex="70" class="md-list-item-text" layout="column">
+                        <h3><strong>{{ message.name }}</strong> <em>{{ message.job }}</em></h3>
+                        <h4>{{ message.date }}</h4>
+                        <p ng-click="showPdf($event, message.content)" ng-if="message.name == 'Michel Lantier'">Voir le pdf</p>
+                        <p ng-if="message.name == 'Frederic House'">{{message.content}}</p>
+                    </div>
+                </md-card>
+
+        <div class="send-box" layout="row" layout-align="space-around center">
+            <md-input-container flex="75">
+                <label>Message</label>
+                <textarea ng-model="messagePost" md-maxlength="140" ng-keypress="keyPressed($event, messagePost)" rows="2"></textarea>
+            </md-input-container>
+            <div flex="20" class="button-container">
+                <md-button ng-click="sendMessage(messagePost)" class="md-fab" aria-label="Comment">
+                    <md-icon class="material-icons">send</md-icon>
+                </md-button>
+            </div>
         </div>
     </div>
 </div>

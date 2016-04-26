@@ -1,10 +1,12 @@
 <div id="folder"
     ng-swipe-right="goToPrescription()"
-    layout="row" layout-align="space-around center" layout-wrap>
-    <md-card ng-repeat="item in dataset" flex="45" flex-gt-sm="20" ng-click="openFolder()">
-        <img class="md-card-image" src="assets/images/yeoman.png" alt="image caption">
-        <md-card-footer>
+    layout="row" layout-wrap layout-align="center center">
+    <md-card ng-repeat="item in dataset" flex="95" flex-gt-sm="30">
+        <img class="md-card-image" src="assets/images/{{item.picture}}" alt="image caption">
+        <md-card-footer layout="column" layout-align="center center">
             {{item.title}}
         </md-card-footer>
+        <div id="bottom" ng-if="$index == dataset.length - 1">
+        </div>
     </md-card>
 </div>

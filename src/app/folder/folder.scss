@@ -6,22 +6,17 @@
     overflow: auto;
 
     md-card {
-        height: 40vh;
-
-        @media screen and (max-width: 640px) {
-            & {
-                height: 30vh;
-            }
-        }
+        height: 50vh;
 
         img {
-            height: 70%;
+            height: 85%;
         }
 
         md-card-footer {
-            text-align: center;
+            height: 15%;
             background-color: #3DBE62;
-            color:#fafafa;
+            color: white;
+            text-transform: uppercase;
         }
     }
 }

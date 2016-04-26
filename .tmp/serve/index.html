@@ -1,0 +1,121 @@
+<!doctype html>
+<html ng-app="slack4Health">
+  <head>
+    <meta charset="utf-8">
+    <title>slack4Health</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/favicon/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/favicon/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/favicon/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/favicon/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/favicon/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/favicon/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/favicon/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/favicon/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="assets/favicon/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="assets/favicon/android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="assets/favicon/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="assets/favicon/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="assets/favicon/manifest.json">
+    <link rel="mask-icon" href="assets/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-TileImage" content="assets/favicon/mstile-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <!-- build:css({.tmp/serve,src}) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="../bower_components/angular-material/angular-material.css" />
+    <link rel="stylesheet" href="../bower_components/angular-toastr/dist/angular-toastr.css" />
+    <link rel="stylesheet" href="../bower_components/animate.css/animate.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css({.tmp/serve,src}) styles/app.css -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="app/index.css">
+    <!-- endinject -->
+    <!-- endbuild -->
+  </head>
+  <body ng-app="Slack4Health">
+    <!--[if lt IE 10]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <header>
+        <p>{{ title || 'Slack4Health' }}</p>
+    </header>
+
+    <div ui-view></div>
+
+    <div class="footer" layout="row" layout-align="center center">
+        <a class="item" flex="20" ui-sref-active="active" ui-sref="rooms">
+            <i class="material-icons">hotel</i>
+            <p hide-sm>Chambres</p>
+        </a>
+        <a class="item" flex="20" ui-sref-active="active" ui-sref="chat">
+             <i class="material-icons">message</i>
+            <p hide-sm>Chat</p>
+        </a>
+        <a class="item" flex="20" ui-sref-active="active" ui-sref="bio">
+            <i class="material-icons">insert_chart</i>
+            <p hide-sm>Bio</p>
+        </a>
+        <a class="item" flex="20" ui-sref-active="active" ui-sref="prescription">
+            <i class="material-icons">mode_edit</i>
+            <p hide-sm>Préscription</p>
+        </a>
+        <a class="item" flex="20" ui-sref-active="active" ui-sref="folder">
+            <i class="material-icons">folder_shared</i>
+            <p hide-sm>Documents</p>
+        </a>
+    </div>
+
+    <!-- <script type="text/javascript" src="./bower_components/ngStorage/ngStorage.min.js"></script> -->
+    <!-- build:js(src) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/angular-animate/angular-animate.js"></script>
+    <script src="../bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="../bower_components/angular-touch/angular-touch.js"></script>
+    <script src="../bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="../bower_components/angular-messages/angular-messages.js"></script>
+    <script src="../bower_components/angular-aria/angular-aria.js"></script>
+    <script src="../bower_components/lodash/lodash.js"></script>
+    <script src="../bower_components/restangular/dist/restangular.js"></script>
+    <script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="../bower_components/angular-material/angular-material.js"></script>
+    <script src="../bower_components/malarkey/dist/malarkey.min.js"></script>
+    <script src="../bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
+    <script src="../bower_components/moment/moment.js"></script>
+    <script src="../bower_components/pdfjs-dist/build/pdf.js"></script>
+    <script src="../bower_components/pdfjs-dist/build/pdf.worker.js"></script>
+    <script src="../bower_components/angular-pdf-viewer/dist/angular-pdf-viewer.min.js"></script>
+    <script src="../bower_components/angular-moment/angular-moment.js"></script>
+    <script src="../bower_components/ngstorage/ngStorage.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:js({.tmp/serve,.tmp/partials,src}) scripts/app.js -->
+    <!-- inject:js -->
+    <script src="app/index.module.js"></script>
+    <script src="app/components/webDevTec/webDevTec.service.js"></script>
+    <script src="app/rooms/rooms.controller.js"></script>
+    <script src="app/prescription/prescription.controller.js"></script>
+    <script src="app/folder/folder.controller.js"></script>
+    <script src="app/chat/chat.controller.js"></script>
+    <script src="app/bio/bio.controller.js"></script>
+    <script src="app/index.run.js"></script>
+    <script src="app/index.route.js"></script>
+    <script src="app/index.constants.js"></script>
+    <script src="app/index.config.js"></script>
+    <!-- endinject -->
+
+    <!-- inject:partials -->
+    <!-- angular templates will be automatically converted in js and inserted here -->
+    <!-- endinject -->
+    <!-- endbuild -->
+
+  </body>
+</html>
